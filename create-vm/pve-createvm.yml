@@ -1,0 +1,5 @@
+--- 
+- name: Created new vm and proxmox
+  hosts: "{{  w_host | default('test') }}"
+  roles:
+  - role: pve-vm

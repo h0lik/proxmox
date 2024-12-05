@@ -1,0 +1,7 @@
+user:       # User Proxmox
+secret:     # Password User Proxmox
+hosts:      # IP address Proxmox 
+pvenode:    # Name node Proxmox Cluster
+vm_name:	# Name VM 	
+cpu:  		# CPUS
+mem:        # Memory

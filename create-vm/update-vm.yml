@@ -1,0 +1,16 @@
+- name: Update vm and proxmox
+  hosts: "{{  w_host | default('test') }}"
+  vars:
+  - pve-vars/pve.yml
+  tasks:
+    - name: Update VM configuration
+      community.general.proxmox_kvm:
+        api_user: '{{ user }}'
+        api_password: '{{ secret }}'
+        api_host: '{{ hosts }}'
+        name: '{{ vm_name }}'
+        node: '{{ pvenode }}'
+        cores: '{{ cpu }}'
+        memory: '{{ mem }}'
+        update: true
+    
