@@ -1,4 +1,29 @@
 
+## Roles Ansible
+### Ansible Role для создания виртуальных машинх из шаблонов структура:
+```bash
+.
+├── README.md
+├── defaults
+│   └── main.yml
+├── files
+├── handlers
+│   └── main.yml
+├── meta
+│   └── main.yml
+├── tasks
+│   ├── clonevm.yml
+│   ├── configurevm.yml
+│   ├── main.yml
+│   └── startvm.yml
+├── templates
+├── tests
+│   ├── inventory
+│   └── test.yml
+└── vars
+    └── main.yml
+```
+9 directories, 11 files
 ##### Редактрируем переменные 
 ##### Первое это данные для подключения
 **user:** Тут вписываем пользователя от которого будут создны виртуальная машина!\
