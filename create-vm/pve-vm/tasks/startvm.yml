@@ -1,0 +1,8 @@
+- name: 'Start VM' 
+  proxmox_kvm:
+    node: "{{ pvenode }}"
+    name: "{{ name_vm }}"
+    api_user: "{{ user }}"
+    api_password: "{{ secret }}"
+    api_host: "{{ hosts }}"
+    state: started 

@@ -1,0 +1,13 @@
+- name: 'Clone cloud-init template'
+  community.general.proxmox_kvm:
+    api_user: "{{ user }}"
+    api_password: "{{ secret }}"
+    api_host: "{{ hosts }}"
+    clone: "{{ template }}"
+    vmid: "{{ vmid }}"
+    newid: "{{ new_id }}"
+    node: "{{ pvenode }}"
+    name: "{{name_vm}}"
+    storage: "{{ stg }}"
+    format: qcow2
+    timeout: 120

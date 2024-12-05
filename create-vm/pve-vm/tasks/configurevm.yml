@@ -1,0 +1,24 @@
+ - name: Configure VM
+   community.general.proxmox_kvm:
+     api_user: "{{ user }}"
+     api_password: "{{ secret }}"
+     api_host: "{{ hosts }}"
+     cores: "{{ cpu }}"
+     sockets: "{{ socket }}"
+     memory: "{{ mem }}"
+     update: yes
+     vmid: "{{ new_id }}"
+     node: "{{ pvenode }}"
+     name: "{{ name_vm }}"
+     ide:
+      ide2: 'local:cloudinit,format=qcow2'
+     sshkeys: "{{ sshkey }}"
+     searchdomains: "{{ hostname }}"
+     ciuser: "{{ users }}"
+     cipassword: "{{ passwd }}"
+     nameservers:
+      - '{{ nameserver }}'
+     net:
+       net0: 'virtio,bridge=vmbr0'
+     ipconfig:
+        ipconfig0: 'ip={{ address }},gw={{ gateway }}'

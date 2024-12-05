@@ -1,0 +1,4 @@
+---
+- import_tasks: clonevm.yml
+- import_tasks: configurevm.yml
+- import_tasks: startvm.yml

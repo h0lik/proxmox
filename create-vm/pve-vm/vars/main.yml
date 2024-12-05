@@ -1,0 +1,20 @@
+---
+user:       # User Proxmox
+secret:     # Password User Proxmox
+hosts:      # IP address Proxmox 
+pvenode:    # Name node Proxmox Cluster
+vmid:       # ID Vm tempalte 
+stg:        # Storage 
+template:   # Name VM Tempalte
+name_vm:    # Name New vm 
+new_id:     # ID New vm 
+cpu:        # CPU 
+socket:     # socket
+mem:        # Memory
+sshkey:     # SSH Key cloud-init
+address:    # IP address
+gateway:    # gateway
+nameserver: # DNS server
+hostname:   # Hostanme
+users:      # USER 
+passwd:     # PASSWORD
