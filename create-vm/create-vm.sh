@@ -14,7 +14,7 @@ virt-customize -a $TEMPLATE ---run-command 'systemctl enable --now qemu-guest-ag
 # Creating a template
 create_vm() {
 qm create $VMID --name $NAME --memory 2048 --cores 2 --net0 virtio,bridge=vmbr0
-qm importdisk $VMID impish-server-cloudimg-amd64.img $POOL
+qm importdisk $VMID $TEMPLATE $POOL
 qm set $VMID --scsihw virtio-scsi-pci --scsi0 $POOL:vm-9000-disk-0
 qm set $VMID --boot c --bootdisk scsi0
 qm set $VMID --ide2 $POOL:cloudinit
@@ -27,15 +27,16 @@ if [[ $EUID -ne 0 ]]; then
     echo "This script must be run as root"
     exit 1
 fi
-clear
-
+reset
+sleep 1
 cat << EOF
- ##                      #          #  #  #  #  
-#  #                     #          #  #  ####  
-#     ###    ##    ###  ###    ##   #  #  ####  
-#     #  #  # ##  #  #   #    # ##  #  #  #  #  
-#  #  #     ##    # ##   #    ##     ##   #  #  
- ##   #      ##    # #    ##   ##    ##   #  #
+ ####    #####    ######     ##     ######   ######   ##  ##   ##   ## 
+ ##  ##   ##  ##   ##        ####      ##     ##       ##  ##   ### ### 
+ ##       ##  ##   ##       ##  ##     ##     ##       ##  ##   ####### 
+ ##       #####    ####     ######     ##     ####     ##  ##   ## # ## 
+ ##       ####     ##       ##  ##     ##     ##       ##  ##   ##   ## 
+ ##  ##   ## ##    ##       ##  ##     ##     ##         ###    ##   ## 
+  ####    ##  ##   ######   ##  ##     ##     ######     ##     ##   ##
 EOF
 echo ""
 sleep 2
