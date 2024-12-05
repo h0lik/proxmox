@@ -27,6 +27,7 @@ if [[ $EUID -ne 0 ]]; then
     echo "This script must be run as root"
     exit 1
 fi
+clear
 
 cat << EOF
  ##                      #          #  #  #  #  
@@ -36,15 +37,16 @@ cat << EOF
 #  #  #     ##    # ##   #    ##     ##   #  #  
  ##   #      ##    # #    ##   ##    ##   #  #
 EOF
+echo ""
 sleep 2
 echo "Press enter to continue [y/n]"
 read ENTER
 if [ $ENTER = "y" ] ;
     then 
-	echo "I'm starting to configure and create a template"
+	echo -e "\e[32m I'm starting to configure and create a template \e[0m"
 	conf_image
 	create_vm;
 	else 
-	echo "NO"
+	echo "\e[31m NO \e[0m"
 	exit;
 fi
