@@ -1,5 +1,5 @@
 #!/bin/bash
-
+ENTER="n"
 NAME=""
 VMID=""
 TEMPLATE=""
@@ -27,6 +27,7 @@ if [[ $EUID -ne 0 ]]; then
     echo "This script must be run as root"
     exit 1
 fi
+
 cat << EOF
  ##                      #          #  #  #  #  
 #  #                     #          #  #  ####  
@@ -35,11 +36,15 @@ cat << EOF
 #  #  #     ##    # ##   #    ##     ##   #  #  
  ##   #      ##    # #    ##   ##    ##   #  #
 EOF
-if confirm "Press enter to continue"; then 
-echo "I'm starting to configure and create a template"
-conf_image
-create_vm
-else 
-echo ""
-exit 0 
-fi 
+sleep 2
+echo "Press enter to continue [y/n]"
+read ENTER
+if [ $ENTER = "y" ] ;
+    then 
+	echo "I'm starting to configure and create a template"
+	conf_image
+	create_vm;
+	else 
+	echo "NO"
+	exit;
+fi
